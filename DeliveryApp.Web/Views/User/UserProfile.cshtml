@@ -1,0 +1,255 @@
+﻿@model DeliveryApp.Web.Models.UserProfile
+<!DOCTYPE HTML>
+<html>
+     <title>XD</title>
+<head>
+<link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="~/css/style.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="~/js/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+                        
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+                        
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+    
+	<script src="~/js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<link href="~/css/magnific-popup.css" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+</head>
+<body>
+        <div style="margin-top: -150px;" class="main">
+            <div class="shop_top">
+                <div class="container">
+                    <div class="row team_box">
+
+                        <div class="content-top">
+                            <h3 style="margin-bottom: -150px;" style="margin-top: -150px;" class="m_3">Profile</h3>
+                        </div>
+                        
+                        <div class="col-md-4 team1">
+                            
+                            <div id="small-dialog3" class="mfp-hide">
+                                <form method="post" asp-controller="User" asp-action="Update">
+                                    <div class="pop_up2">
+                                        <input type="hidden" name="Id" value="@Model.Id" />
+                                        <h4 class="m_4"><a href="#">Name</a></h4>
+                                        <p class="m_4"><div class="to"><input name="UserName" type="text" class="text" value="@Model.UserName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.UserName';}"></div></p>
+
+                                    </div>
+                                    <div class="pop_up2">
+                                        <h4 class="m_4"><a href="#">Surname</a></h4>
+                                        <p class="m_4"><div class="to"><input name="UserSurname" type="text" class="text" value="@Model.UserSurname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.UserSurname';}"></div></p>
+
+                                    </div>
+                                    <div class="pop_up2">
+                                        <h4 class="m_4"><a href="#">E-Mail</a></h4>
+                                        <p class="m_4"><div class="to"><input name="Email" type="text" class="text" value="@Model.Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.Email';}"></div></p>
+
+                                    </div>
+                                    <div class="pop_up2">
+                                        <h4 class="m_4"><a href="#">Phone</a></h4>
+                                        <p class="m_4"><div class="to"><input name="PhoneNumber" type="text" class="text" value="@Model.PhoneNumber" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.PhoneNumber';}"></div></p>
+
+                                    </div>
+                                    <div class="pop_up2">
+                                        <h4 class="m_4"><a href="#">Password</a></h4>
+                                        <p class="m_4"><div class="to"><input type="text" class="text" value="*****" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '********';}"></div></p>
+
+                                    </div>
+                                    <div class="pop_up2">
+                                        <h4 class="m_4"><a href="#">Adress</a></h4>
+                                        <p class="m_4">
+                                            @{
+                                                if (Model.Address != null)
+                                                {
+                                                    <div class="to">
+                                                        <input type="hidden" name="AddressId" value="@Model.Address.Id" />
+                                                        <input name="city" style="width: 100px;" type="text" class="text" value="@Model.Address.City" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.Address.City';}">
+                                                        <input name="Street" style="width: 100px;" type="text" class="text" value="@Model.Address.Street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.Address.Street';}">
+                                                        <input name="DoorNumber" style="width: 100px;" type="text" class="text" value="@Model.Address.DoorNumber" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.Address.DoorNumber';}">
+                                                        <input name="Neighbourhood" style="width: 100px;" type="text" class="text" value="@Model.Address.Neighbourhood" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.Address.Neighbourhood';}">
+                                                        <input name="Defination" style="width: 200px;" type="text" class="text" value="@Model.Address.Defination" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@Model.Address.Defination';}">
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="to">
+                                                        <input type="hidden" name="AddressId" value="0" />
+                                                        <input name="city" style="width: 100px;" type="text" class="text" value="City" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'City';}">
+                                                        <input name="Street" style="width: 100px;" type="text" class="text" value="Street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Street';}">
+                                                        <input name="DoorNumber" style="width: 100px;" type="text" class="text" value="DoorNunber" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DoorNumber';}">
+                                                        <input name="Neighbourhood" style="width: 100px;" type="text" class="text" value="Neighbourhood" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Neighbourhood';}">
+                                                        <input name="Defination" style="width: 200px;" type="text" class="text" value="Defination" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Defination';}">
+                                                    </div>
+                                                }
+                                            }
+
+                                        </p> <br>
+
+
+                                    </div>
+                                    <div class="form-submit">
+                                        <input style="margin-top: 150px;" name="submit" type="submit" id="submit" value="Submit">
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </form>
+                            </div>
+
+                            <div>
+
+
+
+
+                                <h4 class="m_4"><a href="#">Name </a></h4>
+                                <p class="m_4">@Model.UserName </p> <br>
+                                <a class="popup-with-zoom-anim" href="#small-dialog3"><button style="margin-left: 100px;" type="button" class="btn btn-danger">Update</button></a>
+                            </div>
+                        </div>
+
+    <div class="col-md-4 team1">
+
+        <div id="small-dialog3" class="mfp-hide">
+
+        </div>
+        <div>
+            <h4 class="m_4"><a href="#">Surname</a></h4>
+            <p class="m_4">@Model.UserSurname</p> <br>
+            <a class="popup-with-zoom-anim" href="#small-dialog3"><button style="margin-left: 130px;" type="button" class="btn btn-danger">Update</button></a>
+        </div>
+    </div>
+    <div class="col-md-4 team1">
+
+        <div id="small-dialog3" class="mfp-hide">
+
+        </div>
+        <div>
+            <h4 class="m_4"><a href="#">E-Mail</a></h4>
+            <p class="m_4">@Model.Email</p> <br>
+            <a class="popup-with-zoom-anim" href="#small-dialog3"><button style="margin-left: 130px;" type="button" class="btn btn-danger">Update</button></a>
+        </div>
+    </div>
+    <div class="col-md-4 team1">
+
+        <div id="small-dialog3" class="mfp-hide">
+
+        </div>
+        <div>
+            <h4 class="m_4"><a href="#">Phone</a></h4>
+            <p class="m_4">@Model.PhoneNumber</p> <br>
+            <a class="popup-with-zoom-anim" href="#small-dialog3"><button style="margin-left: 100px;" type="button" class="btn btn-danger">Update</button></a>
+        </div>
+    </div>
+    <div class="col-md-4 team1">
+
+        <div id="small-dialog4" class="mfp-hide">
+
+        </div>
+        <div>
+            <h4 class="m_4"><a asp-controller="User" asp-action="PasswordChange">Password</a></h4>
+            <p class="m_4">********</p> <br>
+            <a class="popup-with-zoom-anim" asp-controller="User" asp-action="PasswordChange"><button style="margin-left: 130px;" type="button" class="btn btn-danger">Update</button></a>
+        </div>
+    </div>
+    <div class="col-md-4 team1">
+
+        <div id="small-dialog5" class="mfp-hide">
+
+        </div>
+        <div>
+            @{
+                if (Model.Address != null)
+                {
+                    <h4 class="m_4"><a href="#">Adress</a></h4>
+                    <p class="m_4">@Model.Address.Street @Model.Address.Neighbourhood @Model.Address.DoorNumber @Model.Address.City</p><br><a class="popup-with-zoom-anim" href="#small-dialog3"><button style="margin-left: 130px;" type="button" class="btn btn-danger">Update</button></a>
+                }
+                else
+                {
+                    <h4 class="m_4"><a href="#">Adress</a></h4>
+                    <p class="m_4">Update address informations</p><br><a class="popup-with-zoom-anim" href="#small-dialog3"><button style="margin-left: 130px;" type="button" class="btn btn-danger">Update</button></a>
+                }
+            }
+        </div>
+    </div>
+
+
+
+
+
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-4 team_bottom">
+            <ul class="team_list">
+                @{
+                    if (Model.Orders!=null)
+                    {
+                        foreach (var item in Model.Orders)
+                        {
+                            <h4>Past Shopping</h4>
+                            <li><a class="popup-with-zoom-anim" href="#small-dialog3">Order Data: @item.OrderDate</a><p>
+                                Order Statu: @item.Status / Total Price: @item.TotalPrice <br />
+                                  @foreach (var product in item.Products)
+                                  {
+                                      @product.Name<br />
+                                  }
+                                  </p></li>
+                        }
+                    }
+                }
+
+            </ul>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+</body>	
+</html>

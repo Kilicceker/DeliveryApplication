@@ -1,0 +1,96 @@
+﻿@model DeliveryApp.Web.Areas.Admin.Models.ProductUpdateViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        
+        <link href="~/Admin/css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body >
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div style="margin-top: 100px;" class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-dark my-4">Product Update</h3></div>
+                                    <div class="card-body">
+                                       
+                                        <form asp-controller="Product" asp-action="UpdateProduct" method="post">
+                                            <input type="hidden" name="Id" value="@Model.Product.Id" />
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">Name</label>
+                                                <input class="form-control py-4" id="inputName" name="Name" type="text" value="@Model.Product.Name" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">Product Url</label>
+                                                <input class="form-control py-4" id="inputName" name="PictureUrl" type="url" value="@Model.Product.PictureUrl"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">Brand</label>
+                                                <input class="form-control py-4" list="@Model.Brands" name="ProductBrandId" value="@Model.Product.ProductBrandId">
+                                                <datalist id="@Model.Brands">
+                                                    @foreach (var item in Model.Brands)
+                                                    {
+                                                        <option value="@item.Id">@item.Name</option>
+                                                    }
+
+
+                                                </datalist>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">Category</label>
+                                                <input class="form-control py-4" list="@Model.Categories" name="ProductTypeId" value="@Model.Product.ProductTypeId">
+                                                <datalist id="@Model.Categories">
+                                                    @foreach (var item in Model.Categories)
+                                                    {
+                                                        <option value="@item.Id">@item.Name</option>
+                                                    }
+
+
+                                                </datalist>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">Description</label>
+                                                <input class="form-control py-4" id="inputName" type="text" name="Description" value="@Model.Product.Description" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputPrice">Price</label>
+                                                <input class="form-control py-4" id="inputPrice" type="number" name="Price" value="@Model.Product.Price" />
+                                            </div>
+
+
+
+
+                                            <div style="float: right;" class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="~/Admin/js/scripts.js"></script>
+    </body>
+</html>

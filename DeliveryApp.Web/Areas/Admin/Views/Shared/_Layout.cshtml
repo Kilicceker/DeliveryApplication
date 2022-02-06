@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>@ViewBag.Title</title>
+    
+</head>
+
+<body> 
+    <div>
+    @await Html.PartialAsync("Navbar")
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    
+    
+</body>
+</html>

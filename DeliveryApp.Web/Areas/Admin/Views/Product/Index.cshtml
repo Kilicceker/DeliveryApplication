@@ -1,0 +1,90 @@
+﻿@model DeliveryApp.Web.Models.ProductList
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+<link href="~/Admin/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body class="sb-nav-fixed">
+
+    <div id="layoutSidenav">
+
+        <div id="layoutSidenav_content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+                    <br>
+
+                </div>
+                <main>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            Orders
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>ProductBrand</th>
+                                            <th>ProductType</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th><a asp-action="AddProduct" asp-controller="Product"><button class="btn btn-primary"  ><p>New Product</p></button></a></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                        @foreach (var item in Model.Data)
+                                        {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.ProductType</td>
+                                            <td>@item.ProductBrand</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Price</td>
+                                            <td>
+                                                <a asp-action="UpdateProduct" asp-controller="Product" asp-route-productId="@item.Id" ><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">Update</button></a></td>
+                                            <td><a asp-action="DeleteProduct" asp-controller="Product" asp-route-productId="@item.Id"><button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round-large" data-toggle="modal" data-target="#staticModal">X</button></a></td>
+                                           
+                                        </tr>
+                                        }
+
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </main>
+
+            </div>
+        </div>
+
+
+    
+</body>

@@ -1,0 +1,92 @@
+﻿@model DeliveryApp.Web.Areas.Admin.Models.ProductAddViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />   
+        <link href="~/Admin/css/styles.css" rel="stylesheet" />
+    </head>
+    <body >
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div style="margin-top: 100px;" class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-dark my-4">Add Product</h3></div>
+                                    <div class="card-body">
+                                       
+                                        <form asp-controller="Product" asp-action="AddProduct" method="post" >
+                                         
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">New  Name</label>
+                                                <input class="form-control py-4" id="inputName" name="Name" type="text" placeholder="Name" />
+                                            </div>   
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">New  Product Url</label>
+                                                <input class="form-control py-4" id="inputName" name="PictureUrl" type="url" placeholder="Url" />
+                                            </div> 
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">New  Brand</label>
+                                                <input class="form-control py-4" list="@Model.Brands" name="ProductBrandId" placeholder="Brand">
+                                                <datalist id="@Model.Brands">
+                                                    @foreach (var item in Model.Brands)
+                                                    {
+                                                        <option value="@item.Id">@item.Name</option>
+                                                    }
+                                                  
+                                                                                                
+                                                </datalist>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputName">New  Category</label>
+                                                <input class="form-control py-4" list="@Model.Categories" name="ProductTypeId" placeholder="Category">
+                                                <datalist id="@Model.Categories">
+                                                    @foreach (var item in Model.Categories)
+                                                    {
+                                                        <option value="@item.Id">@item.Name</option>
+                                                    }
+                                                  
+                                                                                                
+                                                </datalist>
+                                            </div>
+                                            
+                                             <div class="form-group">
+                                                <label class="small mb-1" for="inputName">New  description</label>
+                                                <input class="form-control py-4" id="inputName" name="Description" type="text" placeholder="Description" />
+                                            </div> 
+
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputPrice">New Price</label>
+                                                <input class="form-control py-4" id="inputPrice" name="Price"  type="text" placeholder="Price" />
+                                            </div>                                         
+                                            
+
+                                            
+
+                                            <div style="float: right;" class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                
+                                               <button type="submit" class="btn btn-primary">Add</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            
+        </div>
+        <script src="~/Admin/js/scripts.js"></script>
+    </body>
+</html>

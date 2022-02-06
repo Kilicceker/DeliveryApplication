@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+ <title>XD</title>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>@ViewBag.Title</title>
+    
+</head>
+
+<body> 
+    <div>
+    @await Component.InvokeAsync("Navbar")
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div>
+    @await Html.PartialAsync("Footer")
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+@model DeliveryApp.Web.Models.Brand
+<link href="~/Admin/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+
+
+                    <div class="row">
+                        <br>
+
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            Categories
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th><a asp-action="AddBrand" asp-controller="Brand"><button class="btn btn-primary"><p>New Category</p></button></a></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach (var item in Model.Data)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.Name</td>
+                                                <td><a asp-action="UpdateBrand" asp-controller="Brand" asp-route-brandId="@item.Id"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large" type="button" class="btn btn-primary">Update</button></a>
+                                                <td><a asp-action="DeleteBrand" asp-controller="Brand" asp-route-brandId="@item.Id"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large" type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round-large" data-toggle="modal" data-target="#staticModal">X</button></a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+    
+</body>

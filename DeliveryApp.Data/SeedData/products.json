@@ -1,0 +1,130 @@
+﻿[
+  {
+    "Name": "Sultan Veal Cubes",
+    "Price": 50,
+    "Description": "400 g Should be stored from 0° to 4°C until expiry date.",
+    "ProductBrandId": 1,
+    "ProductTypeId": 2,
+    "PictureUrl": "https://cdn.getir.com/product/5f72e7dbbbc38dea7312bc35_tr_1607605436961.jpeg"
+  },
+  {
+    "Name": "Sütaþ Strained Cheese",
+    "Price": 28,
+    "Description": "Pýnar 500 gram Feta Cheese",
+    "ProductBrandId": 2,
+    "ProductTypeId": 2,
+    "PictureUrl": "https://cdn.getir.com/product/582337bb5b31d60004489be3_tr_1579699634031.jpeg"
+  },
+  {
+    "Name": "Ýçim Lactose-Free Milk",
+    "Price": 11,
+    "Description": "1 L Produced without lactose.Easy to digest.",
+    "ProductBrandId": 3,
+    "ProductTypeId": 2,
+    "PictureUrl": "https://cdn.getir.com/product/5ced482dd349d10001e70531_tr_1623652157209.jpeg"
+  },
+  {
+    "Name": "Uno Large White Bread",
+    "Price": 5,
+    "Description": "550 g Packaged in our new environmentally-friendly packaging. ",
+    "ProductBrandId": 4,
+    "ProductTypeId": 3,
+    "PictureUrl": "https://cdn.getir.com/product/5f732abc256958314ff3e84d_tr_1612851563923.jpeg"
+  },
+  {
+    "Name": "Golf Maraþým Sandwich",
+    "Price": 8,
+    "Description": "120 ml Superior flavor award-winning rich milk ice cream in between two chocolate cookies",
+    "ProductBrandId": 5,
+    "ProductTypeId": 1,
+    "PictureUrl": "https://cdn.getir.com/product/5ef30b8a0b42fb64315f2f56_tr_1619507985229.jpeg"
+  },
+  {
+    "Name": "Eti Burçak Whole Wheat Bakery Biscuit",
+    "Price": 3,
+    "Description": "131 gram Eti Burcak",
+    "ProductBrandId": 6,
+    "ProductTypeId": 1,
+    "PictureUrl": "https://cdn.getir.com/product/5f354ac0377ed10f9a9a3f8d_tr_1604781836077.jpeg"
+  },
+  {
+    "Name": "Ulker Napoliten",
+    "Price": 4,
+    "Description": "Ulker Napoliten 33gram",
+    "ProductBrandId": 7,
+    "ProductTypeId": 1,
+    "PictureUrl": "https://cdn.getir.com/product/574b2219dee8a90300f18d24_tr_1638269157710.jpeg"
+  },
+  {
+    "Name": "Ruffles Originals Potato Chips",
+    "Price": 8,
+    "Description": "Ruffles  Party 150 gram",
+    "ProductBrandId": 8,
+    "ProductTypeId": 1,
+    "PictureUrl": "https://cdn.getir.com/product/5bc97caf9c76e6001268c0ac_tr_1631538784826.jpeg"
+  },
+  {
+    "Name": "Lay's Classic Potato Chips",
+    "Price": 5,
+    "Description": "107 g Delivered products can be any of 3 packages. ",
+    "ProductBrandId": 9,
+    "ProductTypeId": 1,
+    "PictureUrl": "https://cdn.getir.com/product/55983299b1dc700c006a71cc_c3067a17-4d9a-4f06-a7db-7b12bd20aa0b.jpeg"
+  },
+  {
+    "Name": "Domestos Practical Surface Spray",
+    "Price": 15,
+    "Description": "200 ml Does not contain bleach. Does not require rinsing.",
+    "ProductBrandId": 10,
+    "ProductTypeId": 5,
+    "PictureUrl": "https://cdn.getir.com/product/5fb37c033a7dd76c5d5e2a87_602bb75f-91d8-4d4b-a3e1-3c5cba05155d.jpeg"
+  },
+  {
+    "Name": "Clear Men",
+    "Price": 27,
+    "Description": "485 ml Helps prevent dandruff",
+    "ProductBrandId": 11,
+    "ProductTypeId": 4,
+    "PictureUrl": "https://cdn.getir.com/product/6194ac3dce90b2b3cd48873d_tr_1637242152391.jpeg"
+  },
+  {
+    "Name": "Pantene",
+    "Price": 21,
+    "Description": "200 ml Pantene 3 Minute Miracle Repair and Protect Conditioner",
+    "ProductBrandId": 11,
+    "ProductTypeId": 4,
+    "PictureUrl": "https://cdn.getir.com/product/5c4028fb0ee16a0001da65dc_tr_1616417356402.jpeg"
+  },
+  {
+    "Name": "Lipton Green Tea Bags",
+    "Price": 25,
+    "Description": "Yellow Label Tea Bag 50 pieces",
+    "ProductBrandId": 12,
+    "ProductTypeId": 6,
+    "PictureUrl": "https://cdn.getir.com/product/565c2826762af60c00796b91_tr_1585310725772.jpeg"
+  },
+  {
+    "Name": "lipton ice tea",
+    "Price": 10,
+    "Description": "lipton ice tea lemon 1.5L",
+    "ProductBrandId": 12,
+    "ProductTypeId": 6,
+    "PictureUrl": "https://cdn.getir.com/product/5bcec8fd9c50285679ac15ab_tr_1634883023930.jpeg"
+  },
+  {
+    "Name": "Uno Large White Bread",
+    "Price": 5,
+    "Description": "550 g Packaged in our new environmentally-friendly packaging.",
+    "ProductBrandId": 4,
+    "ProductTypeId": 3,
+    "PictureUrl": "https://cdn.getir.com/product/5f732abc256958314ff3e84d_tr_1612851563923.jpeg"
+  },
+  {
+    "Name": "Mr Muscle",
+    "Price": 33,
+    "Description": "2.5 LSuitable for hard surfaces such as marble.",
+    "ProductBrandId": 10,
+    "ProductTypeId": 5,
+    "PictureUrl": "https://cdn.getir.com/product/5ce6581bfd9b330001c4a877_tr_1628239918701.jpeg"
+  }
+]

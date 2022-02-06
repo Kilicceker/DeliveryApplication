@@ -1,0 +1,33 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<head>
+    <style>
+        Result Skip Results Iframe
+        body {
+            font: normal 16px/26px Arial, sans-serif;
+            background: #fafafa;
+            color: #2a3744;
+        }
+
+        .error-page {
+            margin: 100px 0 40px;
+            text-align: center;
+        }
+
+        .error-page__header-image {
+            width: 112px;
+        }
+
+        .error-page__title {
+            font-family: "Roboto", Arial, sans-serif;
+            font-size: 31px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <header class="error-page__header">
+            <h1 class="error-page__title nolinks">400</h1>
+        </header>
+        <p class="error-page__message">Make sure the information you entered is correct. <a asp-controller="Home" asp-action="Index">Go Back</a></p>
+    </div>
+</body>

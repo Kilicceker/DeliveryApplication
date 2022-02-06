@@ -1,0 +1,501 @@
+﻿@model DeliveryApp.Web.Models.ProductWithRecomendedModelView
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{ Layout = "_Layout"; }
+<!DOCTYPE HTML>
+<html>
+<head>
+     <title>XD</title>
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="~/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function () {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function () {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function (e) {
+                var $clicked = $(e.target);
+                if (!$clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function () {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+    </script>
+    <!----details-product-slider--->
+    <!-- Include the Etalage files -->
+    <link rel="stylesheet" href="~/css/etalage.css">
+    <script src="~/js/jquery.etalage.min.js"></script>
+    <!-- Include the Etalage files -->
+    <script>
+        jQuery(document).ready(function ($) {
+
+            $('#etalage').etalage({
+                thumb_image_width: 300,
+                thumb_image_height: 400,
+
+                show_hint: true,
+                click_callback: function (image_anchor, instance_id) {
+                    alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
+                }
+            });
+            // This is for the dropdown list example:
+            $('.dropdownlist').change(function () {
+                etalage_show($(this).find('option:selected').attr('class'));
+            });
+
+        });
+    </script>
+    <!----//details-product-slider--->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function () {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function () {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function (e) {
+                var $clicked = $(e.target);
+                if (!$clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function () {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+    </script>
+    <style>
+        hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #FFFFFF;
+}
+a {
+    color: #82b440;
+    text-decoration: none;
+}
+.blog-comment::before,
+.blog-comment::after,
+.blog-comment-form::before,
+.blog-comment-form::after{
+    content: "";
+	display: table;
+	clear: both;
+}
+
+.blog-comment{
+    padding-left: 0%;
+	padding-right: 0%;
+}
+
+.blog-comment ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+.blog-comment img{
+	opacity: 1;
+	filter: Alpha(opacity=100);
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	  	 -o-border-radius: 4px;
+			border-radius: 4px;
+}
+
+.blog-comment img.avatar {
+	position: relative;
+	float: left;
+	margin-left: 0;
+	margin-top: 0;
+	width: 65px;
+	height: 65px;
+}
+
+.blog-comment .post-comments{
+	border: 1px solid #eee;
+    margin-bottom: 20px;
+    margin-left: 85px;
+	margin-right: 0px;
+    padding: 10px 20px;
+    position: relative;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+       	 -o-border-radius: 4px;
+    		border-radius: 4px;
+	background: #fff;
+	color: #6b6e80;
+	position: relative;
+}
+
+.blog-comment .meta {
+	font-size: 13px;
+	color: #aaaaaa;
+	padding-bottom: 8px;
+	margin-bottom: 10px !important;
+	border-bottom: 1px solid #eee;
+}
+
+.blog-comment ul.comments ul{
+	list-style-type: none;
+	padding: 0;
+	margin-left: 85px;
+}
+
+.blog-comment-form{
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-top: 40px;
+}
+
+.blog-comment h3,
+.blog-comment-form h3{
+	margin-bottom: 40px;
+	font-size: 26px;
+	line-height: 30px;
+	font-weight: 800;
+}
+   @@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+
+
+.rating {
+    display: flex;
+    margin-top: -10px;
+    flex-direction: row-reverse;
+    margin-left: -4px;
+    float: left
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 19px;
+    font-size: 25px;
+    color:gold;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="shop_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 single_left">
+                        <div class="single_image">
+                            <ul id="etalage">
+                                <li>
+                                    <a href="optionallink.html">
+                                        <img class="etalage_thumb_image" src="@Model.Product.PictureUrl" />
+                                        <img class="etalage_source_image" src="@Model.Product.PictureUrl" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end product_slider -->
+                        <div class="single_right">
+                            <h3>@Model.Product.Name</h3>
+                            <p class="m_10">@Model.Product.Description</p>
+                            <br />
+                            <p class="m_10">Rating: @Model.Product.Rating</p>
+                            <br />
+                            <a asp-action="CategoryWithProducts" asp-controller="Product" asp-route-categoryId="@Model.Product.ProductTypeId" style="margin-right:15px;"><button type="button" class="btn btn-dark">@Model.Product.ProductType</button></a>
+                            <a asp-action="BrandWithProducts" asp-controller="Product" asp-route-brandId="@Model.Product.ProductBrandId"><button type="button" class="btn btn-dark">@Model.Product.ProductBrand</button></a>
+                        </div>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="col-md-3" style="position:relative; bottom:465px;left:720px">
+
+                        <div class="box-info-product">
+                            <form asp-controller="Basket" asp-action="Add" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="Id" value="@Model.Product.Id" />
+                                <input type="hidden" name="Name" value="@Model.Product.Name" />
+                                <input type="hidden" name="Price" value="@Model.Product.Price" />
+                                <input type="hidden" name="PictureUrl" value="@Model.Product.PictureUrl" />
+                                <input type="hidden" name="ProductBrand" value="@Model.Product.ProductBrand" />
+                                <input type="hidden" name="ProductType" value="@Model.Product.ProductType" />
+
+                                <p class="price2">@Model.Product.Price&#x20BA</p>
+                                <ul class="prosuct-qty">
+                                    <span>Quantity:</span>
+                                    <select name="Quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </ul>
+                                @if (HttpContextAccessor.HttpContext.Request
+.Cookies["DeliveryApp"] == null)
+                                {
+                            <div class="popup" onclick="myFunction()">
+                                <button type="button" name="Submit" class="exclusive">
+                                    <span>Add to cart</span>
+                                </button>
+                                <span class="popuptext" id="myPopup">Sign in your acount!</span>
+                            </div>
+
+                                }
+                                else
+                                {
+                                    <button type="submit" name="Submit" class="exclusive">
+                                        <span>Add to cart</span>
+                                    </button>
+                                }
+
+                            </form>
+                        </div>
+
+                </div>
+
+                <div class="clear"> </div>
+                <br />
+                <br />
+                <div class="clear"> </div>
+                <div class="row">
+                    <div style="margin-top: -250px;float:left;" class="col-md-9 single_left">
+
+
+                        @if (Model.Product.Comments != null)
+                        {
+                            <div class="blog-comment">
+                                <ul class="comments">
+                                    <h3 style="color:#E25050;" class="text-success">Comments</h3>
+                                    @foreach (var item in Model.Product.Comments)
+                                    {
+
+                                        <hr />
+
+                                        <li class="clearfix">
+                                            <img src="https://bootdey.com/img/Content/user_1.jpg" class="avatar" alt="">
+                                            <div class="post-comments">
+                                                <p class="meta">@item.Date <a style="color: #E25050;" href="#">User</a> says : <i class="pull-right"><a style="color: #E25050;" href="#"></a></i></p>
+                                                <p>
+                                                    @item.Text
+                                                </p>
+                                            </div>
+                                        </li>
+
+                                    }
+                                </ul>
+                            </div>
+                            <br />
+                            <br />
+                        }
+
+                    </div>
+                </div>
+                @{
+                    if (HttpContextAccessor.HttpContext.Request
+.Cookies["DeliveryApp"] != null)
+                    {
+                        <div class="row">
+                            <div class="col-md-9 single_left">
+                                <div class="card">
+
+
+                                    <form method="post" asp-action="UpdateRating" asp-controller="Product">
+                                        <div class="col-10">
+                                            <div class="comment-box ml-2">
+
+                                                <div style="margin-top: -50px;" class="rating">
+                                                    <input type="hidden" value="@Model.Product.Id" name="ProductId" />
+                                                    <input type="radio" name="RatingValue" value="5" id="5"><label for="5">☆</label> <input type="radio" name="RatingValue" value="4" id="4"><label for="4">☆</label> <input type="radio" name="RatingValue" value="3" id="3"><label for="3">☆</label> <input type="radio" name="RatingValue" value="2" id="2"><label for="2">☆</label> <input type="radio" name="RatingValue" value="1" id="1"><label for="1">☆</label>
+                                                </div>
+                                                <button style="background-color: #E25050;" type="submit" class="btn">Give Rating</button>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+                <div class="row">
+                    <div class="col-md-9 single_left">
+
+                        @{
+                            if (HttpContextAccessor.HttpContext.Request
+                            .Cookies["DeliveryApp"] != null)
+                            {
+                                <form asp-controller="Comment" asp-action="Add" method="post">
+
+                                    <div class="to">
+                                        <input type="hidden" value="@Model.Product.Id" name="ProductId" />
+                                    </div>
+                                    <div class="text">
+                                        <textarea style="width: 848px;" name="Text" value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
+                                    </div>
+                                    <div style="margin-left: 425px;" class="text">
+                                        <div class="form-submit">
+                                            <input name="submit" type="submit" id="submit" value="Submit">
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </form>
+
+
+                            }
+                        }
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-9 single_left">
+                        <h4 class="m_11">Related Products in the same Category</h4>
+                        @foreach (var item in Model.RecomendedProducts)
+                        {
+                            <div class="col-md-4 product1">
+                                <img src=@item.PictureUrl class="img-responsive" alt="" />
+                                <div class="shop_desc">
+                                    <a href="single.html">
+                                    </a><h3><a href="single.html"></a><a href="#">@(item.Name.Length>25 ? item.Name.Substring(0,25) : item.Name)...</a></h3>
+                                    <p>@(item.Description.Length>25 ? item.Description.Substring(0,25) : item.Description)... </p>
+                                    <span class="actual">@item.Price&#x20BA</span><br>
+                                    <ul class="buttons">
+                                        @{
+                                            if (HttpContextAccessor.HttpContext.Request.Cookies["DeliveryApp"] != null)
+                                            {
+                                                <li class="cart"><a asp-controller="Basket" asp-action="AddSingle" asp-route-productId="@item.Id">Add To Basket</a></li>
+                                            }
+                                        }
+                                        <li class="shop_btn"><a asp-controller="Product" asp-action="Detail" asp-route-productId="@item.Id">Read More</a></li>
+                                        <div class="clear"> </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+    </div>
+    <script>
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
